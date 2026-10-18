@@ -22,15 +22,25 @@
 
 #ifdef _WIN32 // windows platform
 #include <Windows.h>
-#else // UNIX platform (Linux, Ubuntu, IOS)
+#else // Linux platform (Linux, Ubuntu)
 #include <termios.h>
+#ifndef BYTE
+#define BYTE unsigned char
+#endif
+#ifndef DWORD
+#define DWORD unsigned long
+#endif
 #endif
 
 
 class Serial {
 
     private:
+    #ifdef _WIN32
         HANDLE io_handler_;
+    #else
+
+    #endif
         bool _connected = false;
         
     public:

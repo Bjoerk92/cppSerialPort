@@ -8,9 +8,20 @@
  * @copyright Copyright (c) 2026
  * 
  */
-#ifdef _UNIX
+#ifdef __linux__
 #include "Serial.hpp"
 
 
+
+Serial::Serial(const Serial_cfg& config)
+{
+    if (this->_connected)
+    {
+        throw "Serial Error: Already connected";
+    }
+
+    
+
+}
 
 #endif
